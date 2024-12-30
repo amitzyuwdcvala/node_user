@@ -29,6 +29,16 @@ const UsersSchema = new mongoose.Schema({
   job_title: {
     type: String,
     required: true,
+  },
+
+  username: {
+    type: String,
+    required: true,
+  },
+
+  password: {
+    required: true,
+    type: String,
   }
 });
 

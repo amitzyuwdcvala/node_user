@@ -25,6 +25,17 @@ router.get('/users', async (req, res) => {
     }
 });
 
+router.put('/users/:id', async (req, res) => {
+    try{
+        const id = parseInt(req.params.id);
+        const response = await users.updateOne({id: id}, req.body);
+        if(response) return res.status(200).json(response);
+    }catch(err){
+        console.error(err);
+        return res.status(500).send('Server Error');
+    }
+});
+
 router.get('/users/:workType', async (req, res) => {
     try{
         const workType = req.params.workType;
